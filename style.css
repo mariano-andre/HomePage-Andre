@@ -1,0 +1,123 @@
+/* Estilos gerais */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+.cursor{
+    width: 5px;
+    height: 5px;
+    background: #fff;
+}
+.cursor-border{
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+}
+.cursor, .cursor-border{
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+:root{
+    --large-font-ls: 4em;
+    --large-font-ms: 3em;
+    --large-font-ss: 2em;
+
+    --mid-font-ls: 2em;
+    --mid-font-ms: 1.5em;
+    --mid-font-ss: 1.2em;
+
+    --small-font-ls: 1.5em;
+    --small-font-ms: 1.3em;
+    --small-font-ss: 1em;
+
+    --icon: 1.3em;
+}
+
+body{
+    background: #000;
+    
+
+    height: 100vh;
+    font-family: 'Roboto Condensed', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    display: flex;
+    color: #fff;
+}
+a:hover{
+    cursor: none;
+}
+
+#inner-box{
+    padding: 10px;
+    flex-grow: 1;
+    border: 1px solid #fff;
+    margin: 2vh;
+}
+
+.large-font{
+    font-size: var(--large-font-ls);
+}
+.mid-font{
+    font-size: var(--mid-font-ls);
+}
+.small-font{
+    font-size: var(--small-font-ls);
+}
+
+/* Estilos do cabeçalho */
+#social-profile{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: calc(var(--small-font-ls) * 1.2);
+    width: calc(var(--small-font-ls) * 4);
+
+    list-style: none;
+}
+#social-profile li{
+    width: var(--icon);
+}
+#social-profile a:visited{
+    color: #fff;
+}
+path{
+    color: #fff;
+}
+
+/* Responsividade */
+@media(max-width: 600px){
+    #inner-box{
+        padding: 5px;
+        margin: 3vh 3vw;
+    }
+
+    .large-font{
+        font-size: var(--large-font-ms);
+    }
+    .mid-font{
+        font-size: var(--mid-font-ms);
+    }
+    .small-font{
+        font-size: var(--small-font-ms);
+    }
+    
+}
+@media(max-width: 350px){
+    .large-font{
+        font-size: var(--large-font-ss);
+    }
+    .mid-font{
+        font-size: var(--mid-font-ss);
+    }
+    .small-font{
+        font-size: var(--small-font-ss);
+    }    
+}
