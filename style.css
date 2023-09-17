@@ -1,66 +1,83 @@
 /* Estilos gerais */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900&display=swap');
 *{
     margin: 0;
     padding: 0;
 }
-.cursor{
-    width: 5px;
-    height: 5px;
-    background: #fff;
-}
-.cursor-border{
-    width: 20px;
-    height: 20px;
-    border: 2px solid #fff;
-}
-.cursor, .cursor-border{
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
+.cursor-bg{
+    position: absolute;
+    transform: translate(-300px, -300px);
+    z-index: 0;
+    width: 600px;
+    height: 600px;
+    background: #15315c62;
     border-radius: 50%;
-    z-index: 1;
-    pointer-events: none;
+    filter: blur(100px);
 }
 
+.bold{
+    font-weight: bold;
+}
+/*
+    ls: large screen size
+    ms: mid screen size
+    ss: small screen size
+    pm: padding/margin size
+*/
 :root{
     --large-font-ls: 4em;
     --large-font-ms: 3em;
-    --large-font-ss: 2em;
 
     --mid-font-ls: 2em;
     --mid-font-ms: 1.5em;
-    --mid-font-ss: 1.2em;
 
     --small-font-ls: 1.5em;
     --small-font-ms: 1.3em;
-    --small-font-ss: 1em;
+
+    --large-pm: 40px;
+    --mid-pm: 20px;
 
     --icon: 1.3em;
 }
 
 body{
-    background: #000;
-    
-
+    z-index: 3;
+    background: linear-gradient(to bottom right, #0E1826, #121f31);
     height: 100vh;
-    font-family: 'Roboto Condensed', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'DM Sans', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
     display: flex;
     color: #fff;
 }
-a:hover{
-    cursor: none;
-}
 
-#inner-box{
-    padding: 10px;
-    flex-grow: 1;
+/* Estilos da sessão principal */
+.inner-box{
+    position: relative;
+
+    z-index: 1;
+    margin: var(--large-pm);
     border: 1px solid #fff;
-    margin: 2vh;
-}
 
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: row;
+}
+.ornament{
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    border: 1px solid;
+}
+.tr{
+    border-color: #0000 #fff #fff #0000;
+}
+.bl{
+    border-color: #fff #0000 #0000 #fff;
+    bottom: 0;
+    right: 0;
+}
 .large-font{
     font-size: var(--large-font-ls);
 }
@@ -72,7 +89,30 @@ a:hover{
 }
 
 /* Estilos do cabeçalho */
-#social-profile{
+header{
+    padding: var(--large-pm);
+    flex-grow: 1;
+}
+header:hover{
+    .welcome{
+        background: #0b0e3f;
+    }
+}
+.welcome{
+    color: rgb(255, 255, 255);
+    background: #000327;
+    max-width: 20em;
+    margin: 10px 0px;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+/* Estilo do conteúdo principal */
+main{
+    padding: var(--large-pm);
+    flex-grow: 1;
+}
+.social-profile{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -81,26 +121,28 @@ a:hover{
     width: calc(var(--small-font-ls) * 4);
 
     list-style: none;
+    position: absolute;
+    right: var(--large-pm);
 }
-#social-profile li{
+.social-profile li{
     width: var(--icon);
 }
-#social-profile a:visited{
-    color: #fff;
-}
-path{
+.social-profile a:visited{
     color: #fff;
 }
 
 /* Responsividade */
-@media(max-width: 600px){
-    #inner-box{
-        padding: 5px;
-        margin: 3vh 3vw;
+@media(max-width: 650px){
+    .inner-box{
+        padding: var(--mid-pm);
+        margin: calc(var(--mid-pm) / 2);
     }
 
     .large-font{
         font-size: var(--large-font-ms);
+    }
+    .ornament{
+        display: none;
     }
     .mid-font{
         font-size: var(--mid-font-ms);
@@ -108,16 +150,9 @@ path{
     .small-font{
         font-size: var(--small-font-ms);
     }
-    
 }
-@media(max-width: 350px){
-    .large-font{
-        font-size: var(--large-font-ss);
+@media(max-width: 1100px){
+    .inner-box{
+        flex-direction: column;
     }
-    .mid-font{
-        font-size: var(--mid-font-ss);
-    }
-    .small-font{
-        font-size: var(--small-font-ss);
-    }    
 }
