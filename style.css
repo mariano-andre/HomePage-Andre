@@ -42,11 +42,11 @@
 }
 
 body{
+    overflow-x: hidden !important;
     z-index: 3;
     background: linear-gradient(to bottom right, #0E1826, #121f31);
     height: 100vh;
     font-family: 'DM Sans', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;
     display: flex;
     color: #fff;
 }
@@ -133,11 +133,16 @@ main{
 
 /* Responsividade */
 @media(max-width: 650px){
+    body{
+        max-width: 650px;
+    }
+    .cursor-bg{
+        display: none;
+    }
     .inner-box{
         padding: var(--mid-pm);
         margin: calc(var(--mid-pm) / 2);
     }
-
     .large-font{
         font-size: var(--large-font-ms);
     }
